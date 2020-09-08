@@ -2,16 +2,14 @@ version: '3.7'
 
 services:
   clash:
-    image: clashdock
+    image: oopsfoo/clashdock
     # build: .
-    # restart: always
-    # volumes:
-    #   - ./config/config.yaml:/root/.config/clash/config.yaml:ro
+    restart: always
     ports:
       - "9090:9090"
       - "7890:7890"
       - "7891:7891"
-    # When your system is Linux, you can use `network_mode: "host"` directly.
-    # network_mode: "bridge"
-    network_mode: "host"
+    # network_mode: "host"
+    volumes:
+      - "./conf:/clash/conf"
     container_name: clashdock

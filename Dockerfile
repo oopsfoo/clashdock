@@ -9,7 +9,5 @@ RUN mv ./dist /clash_ui
 FROM golang:alpine as clash
 WORKDIR /clash
 COPY ./res/clash /clash/
-COPY ./res/Country.mmdb /clash/
-COPY ./res/config.yaml /clash/
 COPY --from=node_builder /clash_ui /clash/clash_ui
-ENTRYPOINT ["/clash/clash","-d","/clash/"]
+ENTRYPOINT ["/clash/clash","-d","/clash/conf"]
